@@ -30,11 +30,11 @@ public:
         delete[] array;
     }
 
-    T& operator[](int idx) {
-        if(idx < 0 || idx >= n){
+    T operator[](int pos) {
+        if(pos < 0 || pos >= n){
             throw std::out_of_range("Index out of bounds");
         }
-        return array[idx];
+        return array[pos];
     }
 
     friend std::ostream& operator<<(std::ostream &out, const ListArray<T> &list) {
