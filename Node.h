@@ -5,11 +5,12 @@
 
 template <typename T>
 class Node : public List<T> {
-    private:
+    public:
     T data;
     Node<T>* next;
     public:
-    Node(T data, Node<T>* next=nullptr){
+    
+    Node(T data, Node<T>* next = nullptr){
         this->data = data;
         this->next = next;
     };

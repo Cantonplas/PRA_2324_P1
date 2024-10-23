@@ -30,7 +30,7 @@ public:
         delete[] array;
     }
 
-    void insert(int pos, const T& element) override {
+    void insert(int pos, T element) override {
         if (pos < 0 || pos > n) {
             throw std::out_of_range("Index out of bounds");
         }
@@ -44,11 +44,11 @@ public:
         ++n;
     }
 
-    void append(const T& element) override {
+    void append(T element) override {
         insert(n, element);
     }
 
-    void prepend(const T& element) override {
+    void prepend(T element) override {
         insert(0, element);
     }
 
@@ -64,14 +64,14 @@ public:
         return removed_element;
     }
 
-    T get(int pos) const override {
+    T get(int pos) override {
         if (pos < 0 || pos >= n) {
             throw std::out_of_range("Index out of bounds");
         }
         return array[pos];
     }
 
-    int search(const T& element) const override {
+    int search(T element) override {
         for (int i = 0; i < n; ++i) {
             if (array[i] == element) {
                 return i;
@@ -80,11 +80,11 @@ public:
         return -1;
     }
 
-    int size() const override {
+    int size() override {
         return n;
     }
 
-    bool empty() const override {
+    bool empty() override {
         return n == 0;
     }
 

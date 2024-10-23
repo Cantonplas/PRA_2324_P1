@@ -50,7 +50,7 @@ class ListLinked : public List<T> {
         return out;
     }
 
-    void insert(int pos, const T& element) override {
+    void insert(int pos, T element) override {
         if (pos < 0 || pos > n) {
             throw std::out_of_range("Index out of range");
         }
@@ -69,11 +69,11 @@ class ListLinked : public List<T> {
         ++n;
     }
 
-    void append(const T& element) override {
+    void append(T element) override {
         insert(n, element);
     }
 
-    void prepend(const T& element) override {
+    void prepend(T element) override {
         insert(0, element);
     }
 
@@ -110,7 +110,7 @@ class ListLinked : public List<T> {
         return current->data;
     }
     
-    int search(const T& element) override {
+    int search(T element) override {
         Node<T>* current = first;
         for (int i = 0; i < n; ++i) {
             if (current->data == element) {
